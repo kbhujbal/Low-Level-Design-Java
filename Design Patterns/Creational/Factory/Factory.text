@@ -1,0 +1,55 @@
+// Shape.java
+public interface Shape {
+    void draw();
+}
+
+
+// Circle.java
+public class Circle implements Shape {
+
+    @Override
+	public void draw(){
+        System.out.println("Drawing Circle");
+    }
+}
+
+
+
+// Rectangle.java
+public class Rectangle implements Shape {
+    @Override
+	public void draw(){
+        System.out.println("Drawing Rectangle");
+    }
+}
+
+-----------------------------------------------------------------------------
+
+
+// ShapeFactory.java
+public class ShapeFactory {
+    Shape getShape(String input){
+
+        switch(input){
+
+            case "CIRCLE":
+                return new Circle();
+            case "Rectangle":
+                return new Rectangle;
+            default:
+                return null;
+        }
+    }
+}
+
+
+// MainClass.java
+public class MainClass{
+
+    public static void main(String[] args){
+        
+        ShapeFactory shapefactoryObj = new ShapeFactory();
+        Shape shapeObj = shapefactoryObj.getShape("CIRCLE");
+        shapeObj.draw();
+    }
+}
